@@ -22,6 +22,6 @@ All data files are stored in the folder "analysis/input", which contains the fol
 
 Researchers who wish to work with a dataset that has already been processed and cleaned may find it helpful to run the replication codes as detailed above. One of the codes will produce the .dta dataset "../output/dataset_merged.dta", which is the dataset we use to produce most of the tables and figures in the paper. Alternatively, researchers can work with the dataset "../temp/parsed_data/interim_chronology.dta" (produced by code "3_parse_google_analytics.do"), which contains more disaggregated search data. In particular, unlike "dataset_merged.dta" where data are at the consumer level, "interim_chronology.dta" contains a list of all relevant search events, so the data are at the event level.
 
-# References 
+## References 
 
 "Where Does Advertising Content Lead You? We Created a Bookstore to Find Out", Ilya Morozov and Anna Tuchman, Marketing Science, Forthcoming.
