@@ -1,14 +1,14 @@
-## Where Does Advertising Content Lead You? We Created a Bookstore to Find Out
+# Replication Codes and Experimental Data
 
 This repository contains experiment data and replication codes from the paper titled "Where Does Advertising Content Lead You? We Created a Bookstore to Find Out" by Ilya Morozov and Anna Tuchman (Forthcoming in Marketing Science). The SSRN version of this paper can be accessed using this [link](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4308400).
 
-# Replication Codes
+## Codes
 
 The folder "analysis/code" contains all Stata and R codes necessary to replicate all tables and figures from the SSRN version of the paper. The folder contains a batch file "run_code.bat" that creates all necessary folders, produces data tables, outputs results in "analysis/output." The simplest way to replicate the results in the paper is to run the batch file directly. Alternatively, one can run the codes in "analysis/code" manually in their natural order (1_build_qualtrics.do, 2_perform_matching.do, and so on). To ease replication efforts, we permanently keep our own results in "analysis/output" so that code users can compare their own results to ours. All codes in this repository were tested on Stata 17 and R 4.2.2.
 
 In addition to data analysis codes, we provide the latex code for the manuscript of the paper. The folder "paper/" contains both .tex and .lyx versions of the manuscript. To replicate the paper from scratch, one can first run all replication codes and then compile the manuscript in LaTeX/LyX to produce the pdf version of the paper.
 
-# Experimental Data
+## Data
 
 We welcome other researchers to use our experimental data, both to replicate our work and in their own research projects. Users of our dataset are asked to cite the Marketing Science paper as indicated at the end of this document.
 
