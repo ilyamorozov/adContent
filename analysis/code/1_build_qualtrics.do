@@ -29,7 +29,6 @@ program create_directories
 	mkdir "../output/tables/orders_summary/"
 	mkdir "../output/graphs/"
 	mkdir "../output/graphs/descriptives/"
-	mkdir "../output/graphs/comscore/"
 	mkdir "../output/graphs/genre_choices/"
 	mkdir "../output/graphs/genre_preferences/"
 	mkdir "../output/graphs/demand_rotation/"

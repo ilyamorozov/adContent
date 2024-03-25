@@ -16,5 +16,6 @@ MKDIR ..\output
 %STATAEXE% /e do 7_visualize_results.do
 %STATAEXE% /e do 8_validate_choices.do
 %REXE% CMD BATCH 9_ate_bar_charts.R
+REM %STATAEXE% /e do 10_compare_with_comscore.do
 
 PAUSE

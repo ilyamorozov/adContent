@@ -9,9 +9,9 @@ program main
 	
 end
 	
-	
+* Table A1
 program demographics_summary	   
-			   
+	
 	use "../output/dataset_merged.dta", clear
 	local row = 1
 	matrix TABLE_DEMOS = J(23,7,.)
@@ -28,7 +28,7 @@ program demographics_summary
 		}	
 	matrix list TABLE_DEMOS
 
-	frmttable using "../output/tables/demographics.tex", statmat(TABLE_DEMOS) sdec(2, 2, 1) fragment  ///
+	frmttable using "../output/tables/tableA1_demographics.tex", statmat(TABLE_DEMOS) sdec(2, 2, 1) fragment  ///
 																 ctitle("" "Mean" "Std.dev" "Min" "P5" "P50" "P95" "Max")  ///
 																 rtitle("Ranked fantasy genre (1-5)"  \ ///
 																		"Ranked mystery genre (1-5)"  \ ///
@@ -55,8 +55,9 @@ program demographics_summary
 																		"Age") tex replace
 																		
 end
+
 	
-	
+* Table A2
 program attrition_analysis
 
 	* Test for the balance of experiment assignments (dropped vs included) *
@@ -94,7 +95,7 @@ program attrition_analysis
 	}
 	matrix list TABLE
 
-	frmttable using "../output/tables/table_attrition.tex", statmat(TABLE) sdec(3) fragment  ///
+	frmttable using "../output/tables/tableA2_attrition.tex", statmat(TABLE) sdec(3) fragment  ///
 			ctitle("" "Est." "S.E." "P-value")                                               ///
 			rtitle("\hspace{5pt} Lost Girls Plain Ad"                                      \ ///
 				   "\hspace{5pt} Lost Girls Genre Ad"                                      \ ///
@@ -106,7 +107,8 @@ program attrition_analysis
 
 end
 		
-		
+
+* Table A3
 program randomization_checks																
 																
 	local row = 1
@@ -128,7 +130,7 @@ program randomization_checks
 				
 	matrix list TABLE_DEMOS
 
-	frmttable using "../output/tables/randomization_checks.tex", statmat(TABLE_DEMOS) sdec(3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\0) fragment  ///
+	frmttable using "../output/tables/tableA3_randomization_checks.tex", statmat(TABLE_DEMOS) sdec(3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\0) fragment  ///
 																 ctitle("" "No" "Book 1" "Book 1" "Book 1" "Book 2" "Book 2" "Book 2" "\emph{F}-test" \ "" "Ads" "Genre" "Plain" "Price" "Genre" "Plain" "Price" "\emph{p}-val")  ///
 																 rtitle("Fantasy rank"     \ ///
 																		"Mystery rank"     \ ///

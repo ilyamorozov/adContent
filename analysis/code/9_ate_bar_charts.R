@@ -16,30 +16,7 @@ df_master <- rbind(df_lostgirls, df_stateline)
 
 setwd("../output/graphs/main_ate/")
 
-
-
-### Plot 1: purchases (advertised book) ###
-# T-test
-stat.test <- df_master %>%
-  group_by(book)       %>%
-  t_test(purchased ~ ad_type, ref.group = "1ad")
-stat.test
-
-# Plot
-bp <- ggbarplot(
-  df_master, x = "book", y = "purchased", fill = "ad_type",
-  add = "mean_ci", add.params = list(group = "ad_type"),
-  position = position_dodge(0.8)
-) 
-
-p <- bp + scale_fill_brewer(palette="Blues", labels=c('No Ads', 'Plain Ad', 'Genre Ad' , 'Price Ad')) + 
-  labs(title="Purchase rate of the advertised book", x ="Advertised book", y = "Purchased ad book") +
-  theme(legend.title=element_blank(), legend.position="bottom", plot.title = element_text(hjust = 0.5))
-p
-ggsave("purchases.png", plot = p, width = 1500, height = 1200, units = "px", dpi = 300)
-
-
-### Plot 2: searches (advertised book) ###
+### Figure 3a: searches (advertised book) ###
 # T-test
 stat.test <- df_master %>%
   group_by(book)       %>%
@@ -57,30 +34,30 @@ p <- bp + scale_fill_brewer(palette="Blues", labels=c('No Ads', 'Plain Ad', 'Gen
   labs(title="Search rate of the advertised book", x ="Advertised book", y = "Searched ad book") + 
   theme(legend.title=element_blank(), legend.position="bottom", plot.title = element_text(hjust = 0.5))
 p
-ggsave("searches.png", plot = p, width = 1500, height = 1200, units = "px", dpi = 300)
+ggsave("fig3a_searches.pdf", plot = p, width = 1500, height = 1200, units = "px", dpi = 300)
 
-### Plot 3: total time ###
+
+### Figure 3b: purchases (advertised book) ###
 # T-test
 stat.test <- df_master %>%
   group_by(book)       %>%
-  t_test(session_duration ~ ad_type, ref.group = "1ad")
+  t_test(purchased ~ ad_type, ref.group = "1ad")
 stat.test
 
 # Plot
 bp <- ggbarplot(
-  df_master, x = "book", y = "session_duration", fill = "ad_type",
+  df_master, x = "book", y = "purchased", fill = "ad_type",
   add = "mean_ci", add.params = list(group = "ad_type"),
   position = position_dodge(0.8)
 ) 
 
 p <- bp + scale_fill_brewer(palette="Blues", labels=c('No Ads', 'Plain Ad', 'Genre Ad' , 'Price Ad')) + 
-  labs(title="Session duration in minutes", x ="Advertised book", y = "Session duration (min)") + 
+  labs(title="Purchase rate of the advertised book", x ="Advertised book", y = "Purchased ad book") +
   theme(legend.title=element_blank(), legend.position="bottom", plot.title = element_text(hjust = 0.5))
 p
-ggsave("total_time.png", plot = p, width = 1500, height = 1200, units = "px", dpi = 300)
+ggsave("fig3b_purchases.pdf", plot = p, width = 1500, height = 1200, units = "px", dpi = 300)
 
-
-### Plot 4: total searches ###
+### Figure A12a: total searches ###
 # T-test
 stat.test <- df_master %>%
   group_by(book)       %>%
@@ -98,10 +75,10 @@ p <- bp + scale_fill_brewer(palette="Blues", labels=c('No Ads', 'Plain Ad', 'Gen
   labs(title="Num. products searched (all)", x ="Advertised book", y = "Unique products searched") + 
   theme(legend.title=element_blank(), legend.position="bottom", plot.title = element_text(hjust = 0.5))
 p
-ggsave("total_searches.png", plot = p, width = 1500, height = 1200, units = "px", dpi = 300)
+ggsave("figA12a_total_searches.pdf", plot = p, width = 1500, height = 1200, units = "px", dpi = 300)
 
 
-### Plot 5: total searches (non-advertised) ###
+### Figure A12b: total searches (non-advertised) ###
 # T-test
 stat.test <- df_master %>%
   group_by(book)       %>%
@@ -119,10 +96,32 @@ p <- bp + scale_fill_brewer(palette="Blues", labels=c('No Ads', 'Plain Ad', 'Gen
   labs(title="Num. products searched (non-advertised)", x ="Advertised book", y = "Unique products searched") + 
   theme(legend.title=element_blank(), legend.position="bottom", plot.title = element_text(hjust = 0.5))
 p
-ggsave("total_searches_noad.png", plot = p, width = 1500, height = 1200, units = "px", dpi = 300)
+ggsave("figA12b_total_searches_noad.pdf", plot = p, width = 1500, height = 1200, units = "px", dpi = 300)
 
 
-### Plot 6: opened second page ###
+
+### Figure A12c: total time ###
+# T-test
+stat.test <- df_master %>%
+  group_by(book)       %>%
+  t_test(session_duration ~ ad_type, ref.group = "1ad")
+stat.test
+
+# Plot
+bp <- ggbarplot(
+  df_master, x = "book", y = "session_duration", fill = "ad_type",
+  add = "mean_ci", add.params = list(group = "ad_type"),
+  position = position_dodge(0.8)
+) 
+
+p <- bp + scale_fill_brewer(palette="Blues", labels=c('No Ads', 'Plain Ad', 'Genre Ad' , 'Price Ad')) + 
+  labs(title="Session duration in minutes", x ="Advertised book", y = "Session duration (min)") + 
+  theme(legend.title=element_blank(), legend.position="bottom", plot.title = element_text(hjust = 0.5))
+p
+ggsave("figA12c_total_time.pdf", plot = p, width = 1500, height = 1200, units = "px", dpi = 300)
+
+
+### Figure A12d: opened second page ###
 # T-test
 stat.test <- df_master %>%
   group_by(book)       %>%
@@ -140,31 +139,10 @@ p <- bp + scale_fill_brewer(palette="Blues", labels=c('No Ads', 'Plain Ad', 'Gen
   labs(title="Prob. opened second page", x ="Advertised book", y = "Opened second page in product list") + 
   theme(legend.title=element_blank(), legend.position="bottom", plot.title = element_text(hjust = 0.5))
 p
-ggsave("total_second_page.png", plot = p, width = 1500, height = 1200, units = "px", dpi = 300)
+ggsave("figA12d_total_second_page.pdf", plot = p, width = 1500, height = 1200, units = "px", dpi = 300)
 
 
-### Plot 7: num product list pages opened ###
-# T-test
-stat.test <- df_master %>%
-  group_by(book)       %>%
-  t_test(pages_opened ~ ad_type, ref.group = "1ad")
-stat.test
-
-# Plot
-bp <- ggbarplot(
-  df_master, x = "book", y = "pages_opened", fill = "ad_type",
-  add = "mean_ci", add.params = list(group = "ad_type"),
-  position = position_dodge(0.8)
-) 
-
-p <- bp + scale_fill_brewer(palette="Blues", labels=c('No Ads', 'Plain Ad', 'Genre Ad' , 'Price Ad')) + 
-  labs(title="Opened product list pages", x ="Advertised book", y = "Pages opened") + 
-  theme(legend.title=element_blank(), legend.position="bottom", plot.title = element_text(hjust = 0.5))
-p
-ggsave("total_pages_opened.png", plot = p, width = 1500, height = 1200, units = "px", dpi = 300)
-
-
-### Plot 8: kept book after study ###
+### Figure A12e: kept book after study ###
 # T-test
 stat.test <- df_master %>%
   group_by(book)       %>%
@@ -182,36 +160,6 @@ p <- bp + scale_fill_brewer(palette="Blues", labels=c('No Ads', 'Plain Ad', 'Gen
   labs(title="Kept book after study", x ="Advertised book", y = "Prob. kept book") + 
   theme(legend.title=element_blank(), legend.position="bottom", plot.title = element_text(hjust = 0.5))
 p
-ggsave("total_kept_book.png", plot = p, width = 1500, height = 1200, units = "px", dpi = 300)
-
-
-### Plot 9: num product list pages opened ###
-# T-test
-stat.test <- df_master %>%
-  group_by(book)       %>%
-  t_test(genre_rank_purchased ~ ad_type, ref.group = "1ad")
-stat.test
-
-# Plot
-bp <- ggbarplot(
-  df_master, x = "book", y = "genre_rank_purchased", fill = "ad_type",
-  add = "mean_ci", add.params = list(group = "ad_type"),
-  position = position_dodge(0.8)
-) 
-
-p <- bp + scale_fill_brewer(palette="Blues", labels=c('No Ads', 'Plain Ad', 'Genre Ad' , 'Price Ad')) + 
-  labs(title="Genre rank of purchased book", x ="Advertised book", y = "Genre rank") + 
-  theme(legend.title=element_blank(), legend.position="bottom", plot.title = element_text(hjust = 0.5))
-p
-ggsave("total_genre_rank.png", plot = p, width = 1500, height = 1200, units = "px", dpi = 300)
-
-
-
-
-
-
-
-
-
+ggsave("figA12e_total_kept_book.pdf", plot = p, width = 1500, height = 1200, units = "px", dpi = 300)
 
 

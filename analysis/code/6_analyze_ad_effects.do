@@ -31,10 +31,11 @@ program main
 	
 	* Additional analyses *
 	value_of_targeting
+	ate_general_search
 	
 end
 
-
+* Table 1 and Table A8
 program ate_all_ads_summary
 
 	use "../output/dataset_merged.dta", clear
@@ -117,7 +118,7 @@ program ate_all_ads_summary
 	matrix list TABLE2
 	
 	local controls = $controls
-	frmttable using "../output/tables/ate_estimates/table_all_ate_c`controls'.tex", statmat(TABLE2) sdec(3) fragment                      ///
+	frmttable using "../output/tables/ate_estimates/table1_all_ate_c`controls'.tex", statmat(TABLE2) sdec(3) fragment                      ///
 		ctitle("" "Search" "Search" "Search" "Purch." "Purch." "Purch." \ "" "Est." "S.E." "P-value" "Est." "S.E." "P-value")  ///
 		rtitle("\textbf{ATE Regression Estimates (Lost Girls):}" \ ///
 			   "\hspace{5pt} $\beta$ Plain ad"                                    \ ///
@@ -138,7 +139,7 @@ program ate_all_ads_summary
 
 end
 
-
+* Table 2 and Table A9
 program ate_match_value
 
 	use "../output/dataset_merged.dta", clear
@@ -225,7 +226,7 @@ program ate_match_value
 	matrix list PANEL_ALL
 
 	local controls = $controls
-	frmttable using "../output/tables/ate_estimates/table3_match_value_c`controls'.tex", statmat(PANEL_ALL) sdec(3) fragment ///
+	frmttable using "../output/tables/ate_estimates/table2_match_value_c`controls'.tex", statmat(PANEL_ALL) sdec(3) fragment ///
 		ctitle("" "Plain Ad" "Genre Ad" "$\hat{\beta}$" "S.E." "\emph{p}-value")  ///
 		rtitle("\textbf{\emph{Panel A. Advertising for Lost Girls}}"                  \ ///
 			   "\hspace{5pt} Prob. search Lost Girls:"                     \ ///
@@ -254,6 +255,7 @@ program ate_match_value
 end
 
 
+* Table 3 and Table A10
 program ate_spillovers_info_ads_pool
 
 	use "../output/dataset_merged.dta", clear
@@ -321,7 +323,7 @@ program ate_spillovers_info_ads_pool
 	matrix list PANEL_ALL
 	
 	local controls = $controls
-	frmttable using "../output/tables/ate_estimates/table_spillovers_info_ads_pool_c`controls'.tex", statmat(PANEL_ALL) sdec(3) fragment ///
+	frmttable using "../output/tables/ate_estimates/table3_spillovers_info_ads_pool_c`controls'.tex", statmat(PANEL_ALL) sdec(3) fragment ///
 	ctitle("\textbf{\emph{Pooling Both Books}}" "Plain Ad" "Attribute Ad" "$\hat{\beta}$" "S.E." "\emph{p}-value")  ///
 	rtitle("\textbf{\emph{Panel A. Spillovers from price ads:}}"                \ ///
 		   "\hspace{5pt} Sorted by price low-to-high"                           \ ///
@@ -339,7 +341,7 @@ program ate_spillovers_info_ads_pool
 
 end
 
-
+* Table A7
 program ate_both_books
 
 	use "../output/dataset_merged.dta", clear
@@ -390,7 +392,7 @@ program ate_both_books
 	matrix list PANEL_ALL
 	
 	local controls = $controls
-	frmttable using "../output/tables/ate_estimates/tables12_joined_c`controls'.tex", statmat(PANEL_ALL) sdec(3) fragment ///
+	frmttable using "../output/tables/ate_estimates/tableA7_c`controls'.tex", statmat(PANEL_ALL) sdec(3) fragment ///
 	ctitle(" " "No Ad" "Plain Ad" "$\hat{\beta}$" "S.E." "\emph{p}-value")  ///
 	rtitle("\textbf{\emph{Panel A. Plain advertising for Lost Girls}}"  \ ///
 		   "Prob. viewed organic listing"                           \ ///
@@ -426,6 +428,7 @@ program ate_both_books
 end
 
 
+* Table A6
 program ate_match_price
 
 	use "../output/dataset_merged.dta", clear
@@ -511,7 +514,7 @@ program ate_match_price
 	matrix list PANEL_ALL
 
 	local controls = $controls
-	frmttable using "../output/tables/ate_estimates/table3_match_price_c`controls'.tex", statmat(PANEL_ALL) sdec(3) fragment ///
+	frmttable using "../output/tables/ate_estimates/tableA6_match_price_c`controls'.tex", statmat(PANEL_ALL) sdec(3) fragment ///
 		ctitle("" "Plain Ad" "Price Ad" "$\hat{\beta}$" "S.E." "\emph{p}-value")  ///
 		rtitle("\textbf{\emph{Panel A. Advertising for Lost Girls}}"                  \ ///
 			   "\hspace{5pt} Prob. search Lost Girls:"                     \ ///
@@ -540,6 +543,7 @@ program ate_match_price
 end
 
 
+* Calculations reported in Introduction and Section 6
 program value_of_targeting
 	
 	log using "../output/estimates/gains_from_targeting", text
@@ -739,64 +743,55 @@ program value_of_targeting
 
 end
 
+* Calculations reported in Section 5.5
+ program ate_general_search
+ 
+	use "../output/dataset_merged.dta", clear
+	
+ 	gen treatment = .
+ 	replace treatment = 1 if ad_condition == 2 | ad_condition == 5 // plain ads
+ 	replace treatment = 0 if ad_condition == 0 // no ads
+	
+ 	if $controls == 1 {
+ 		local demographics "i.fantasy_rank i.mystery_rank i.romance_rank i.scifi_rank female black hispanic age_years married divorced bachelor master some_college income1 income2 income3 income4 income5 income6 i.ebooks i.printbooks"
+ 		}
+	
+ 	matrix TABLE = J(4,5,.)
+ 	local counter = 1
+	foreach outcome_variable in "num_unique" "opened_second_page" "session_duration" "dual_response"  {
+ 		sum `outcome_variable' if treatment == 0
+ 		matrix TABLE[`counter',1] = r(mean)
+ 		sum `outcome_variable' if treatment == 1
+ 		matrix TABLE[`counter',2] = r(mean)
+ 		reg `outcome_variable' treatment `demographics', robust
+ 		matrix TABLE[`counter',3] = _b[treatment]
+ 		matrix TABLE[`counter',4] = r(table)[2,1]
+ 		matrix TABLE[`counter',5] = r(table)[4,1]
+ 		local counter = `counter' + 1
+ 		}	
+	
+ 	count if treatment == 1
+ 	local num_obs = `r(N)'
+ 	count if treatment == 0
+ 	local num_obs_control = `r(N)'
+	
+ 	drop treatment
+	
+ 	matrix PANEL_A = TABLE[1..3,1..5]
+ 	matrix PANEL_B = TABLE[4,1..5]
+ 	matrix PANEL_ALL = (J(1,5,.) \ PANEL_A \ J(1,5,.) \ PANEL_B)
 
-// program ate_general_search
-//	
-// 	gen treatment = .
-// 	replace treatment = 1 if ad_condition == 2 | ad_condition == 5 // plain ads
-// 	replace treatment = 0 if ad_condition == 0 // no ads
-// 	*replace treatment = 1 if ad_condition >  0  // any ad
-// 	*replace treatment = 0 if ad_condition == 0  // no ads
-// 	*replace treatment = 0 if ad_condition == 2 | ad_condition == 5 // plain ads
-// 	*replace treatment = 1 if ad_condition == 1 | ad_condition == 3 | ad_condition == 4 | ad_condition == 6 // attribute ads
-// 	*replace treatment = 1 if ad_condition == 1 | ad_condition == 4 // genre ads
-// 	*replace treatment = 1 if ad_condition == 3 | ad_condition == 6 // genre ads
-//	
-// 	if $controls == 1 {
-// 		local demographics "i.fantasy_rank i.mystery_rank i.romance_rank i.scifi_rank female black hispanic age_years married divorced bachelor master some_college income1 income2 income3 income4 income5 income6 i.ebooks i.printbooks"
-// 		}
-//	
-// 	matrix TABLE = J(9,5,.)
-// 	local counter = 1
-// 	foreach outcome_variable in "num_unique" "num_unique_nonad" "num_unique_recom" "pages_opened" "opened_second_page" "session_duration" "purchased_fav_genre" "dual_response" "redeemed_book" {
-// 		sum `outcome_variable' if treatment == 0
-// 		matrix TABLE[`counter',1] = r(mean)
-// 		sum `outcome_variable' if treatment == 1
-// 		matrix TABLE[`counter',2] = r(mean)
-// 		reg `outcome_variable' treatment `demographics', robust
-// 		matrix TABLE[`counter',3] = _b[treatment]
-// 		matrix TABLE[`counter',4] = r(table)[2,1]
-// 		matrix TABLE[`counter',5] = r(table)[4,1]
-// 		local counter = `counter' + 1
-// 		}	
-//	
-// 	count if treatment == 1
-// 	local num_obs = `r(N)'
-// 	count if treatment == 0
-// 	local num_obs_control = `r(N)'
-//	
-// 	drop treatment
-//	
-// 	matrix PANEL_A = TABLE[1..6,1..5]
-// 	matrix PANEL_B = TABLE[7..9,1..5]
-// 	matrix PANEL_ALL = (J(1,5,.) \ PANEL_A \ J(1,5,.) \ PANEL_B)
-//
-// 	local controls = $controls
-// 	frmttable using "../output/tables/ate_estimates/table7_general_c`controls'.tex", statmat(PANEL_ALL) sdec(3) fragment ///
-// 		ctitle("" "No Ad" "Plain Ad" "$\hat{\beta}$" "S.E." "\emph{p}-value")  ///
-// 		rtitle("\textbf{Panel A. Search intensity:}"             \ ///
-// 		       "Number of searched books"    \ ///
-// 			   "Number of searched non-advertised books"  \ ///
-// 			   "Number of books searched from recom."  \ ///
-// 			   "Number of opened assortment pages"   \ ///
-// 			   "Opened multiple assortment pages"        \ ///
-// 			   "Session duration (minutes)"    \ ///
-// 			   "\textbf{Panel B. Search outcomes:}"           \ ///
-// 			   "Purchased favorite genre"      \ ///
-// 			   "Kept book after checkout"      \ ///
-// 			   "Redeemed book") tex replace
-//	
-// end
+ 	local controls = $controls
+ 	frmttable using "../output/tables/ate_estimates/intensity_satisfaction_c`controls'.tex", statmat(PANEL_ALL) sdec(3) fragment ///
+ 		ctitle("" "No Ad" "Plain Ad" "$\hat{\beta}$" "S.E." "\emph{p}-value")  ///
+ 		rtitle("\textbf{Panel A. Search intensity:}"             \ ///
+ 		       "Number of searched books"    \ ///
+ 			   "Opened multiple assortment pages"        \ ///
+ 			   "Session duration (minutes)"    \ ///
+ 			   "\textbf{Panel B. Satisfaction:}"           \ ///
+ 			   "Kept book after checkout") tex replace
+	
+ end
 
 
 main
