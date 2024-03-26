@@ -3092,7 +3092,7 @@ status open
 \align center
 \begin_inset CommandInset include
 LatexCommand input
-filename "../analysis/replication_package/output/tables/ate_estimates/table1_all_ate_c0.lyx"
+filename "../analysis/replication_package/output/tables/ate_estimates/table1_all_ate_c0.tex"
 
 \end_inset
 
@@ -3364,7 +3364,7 @@ status open
 \align center
 \begin_inset CommandInset include
 LatexCommand input
-filename "../analysis/replication_package/output/tables/ate_estimates/table2_match_value_c0.lyx"
+filename "../analysis/replication_package/output/tables/ate_estimates/table2_match_value_c0.tex"
 
 \end_inset
 
@@ -4095,7 +4095,7 @@ status open
 \align center
 \begin_inset CommandInset include
 LatexCommand input
-filename "../analysis/replication_package/output/tables/ate_estimates/table3_spillovers_info_ads_pool_c0.lyx"
+filename "../analysis/replication_package/output/tables/ate_estimates/table3_spillovers_info_ads_pool_c0.tex"
 
 \end_inset
 
@@ -6414,7 +6414,7 @@ status open
 \align center
 \begin_inset CommandInset include
 LatexCommand input
-filename "../analysis/replication_package/output/tables/tableA1_demographics.lyx"
+filename "../analysis/replication_package/output/tables/tableA1_demographics.tex"
 
 \end_inset
 
@@ -6493,7 +6493,7 @@ status open
 \align center
 \begin_inset CommandInset include
 LatexCommand input
-filename "../analysis/replication_package/output/tables/tableA2_attrition.lyx"
+filename "../analysis/replication_package/output/tables/tableA2_attrition.tex"
 
 \end_inset
 
@@ -6644,7 +6644,7 @@ status open
 \align center
 \begin_inset CommandInset include
 LatexCommand input
-filename "../analysis/replication_package/output/tables/tableA3_randomization_checks.lyx"
+filename "../analysis/replication_package/output/tables/tableA3_randomization_checks.tex"
 
 \end_inset
 
@@ -7312,7 +7312,7 @@ status open
 \align center
 \begin_inset CommandInset include
 LatexCommand input
-filename "../analysis/replication_package/output/tables/orders_summary/tableA4_orders_summary.lyx"
+filename "../analysis/replication_package/output/tables/orders_summary/tableA4_orders_summary.tex"
 
 \end_inset
 
@@ -8430,7 +8430,7 @@ status open
 \align center
 \begin_inset CommandInset include
 LatexCommand input
-filename "../analysis/replication_package/output/tables/ate_estimates/tableA7_c0.lyx"
+filename "../analysis/replication_package/output/tables/ate_estimates/tableA7_c0.tex"
 
 \end_inset
 
@@ -8610,7 +8610,7 @@ status open
 \align center
 \begin_inset CommandInset include
 LatexCommand input
-filename "../analysis/replication_package/output/tables/ate_estimates/tableA6_match_price_c0.lyx"
+filename "../analysis/replication_package/output/tables/ate_estimates/tableA6_match_price_c0.tex"
 
 \end_inset
 
@@ -8787,7 +8787,7 @@ status open
 \align center
 \begin_inset CommandInset include
 LatexCommand input
-filename "../analysis/replication_package/output/tables/ate_estimates/tableA7_c1.lyx"
+filename "../analysis/replication_package/output/tables/ate_estimates/tableA7_c1.tex"
 
 \end_inset
 
@@ -8901,7 +8901,7 @@ status open
 \align center
 \begin_inset CommandInset include
 LatexCommand input
-filename "../analysis/replication_package/output/tables/ate_estimates/table1_all_ate_c1.lyx"
+filename "../analysis/replication_package/output/tables/ate_estimates/table1_all_ate_c1.tex"
 
 \end_inset
 
@@ -9015,7 +9015,7 @@ status open
 \align center
 \begin_inset CommandInset include
 LatexCommand input
-filename "../analysis/replication_package/output/tables/ate_estimates/table2_match_value_c1.lyx"
+filename "../analysis/replication_package/output/tables/ate_estimates/table2_match_value_c1.tex"
 
 \end_inset
 
@@ -9128,7 +9128,7 @@ status open
 \align center
 \begin_inset CommandInset include
 LatexCommand input
-filename "../analysis/replication_package/output/tables/ate_estimates/table3_spillovers_info_ads_pool_c1.lyx"
+filename "../analysis/replication_package/output/tables/ate_estimates/table3_spillovers_info_ads_pool_c1.tex"
 
 \end_inset
 
