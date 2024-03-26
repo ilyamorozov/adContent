@@ -12,7 +12,7 @@ In addition to data analysis codes, we provide the .lyx version of the manuscrip
 
 We welcome other researchers to use our experimental data, both to replicate our work and in their own research projects. Users of our dataset are asked to cite the Marketing Science paper as indicated at the end of this document.
 
-All data files are stored in the folder "analysis/input", which contains the following data tables:
+All data files are stored in the folder "replication_package/input", which contains the following data tables:
 1. Qualtrics. Contains the raw data pull from Qualtrics.
 2. Google Analytics. Contains the raw logs of events (product views, clicks, etc.) we pulled from Google Analytics API using our Google account.
 3. Woocommerce. Contains the dataset of all purchases submitted through the checkout page of our WooCommerce bookstore.
@@ -20,7 +20,7 @@ All data files are stored in the folder "analysis/input", which contains the fol
 5. Books sent. The list of all books and redemption links we sent to study participants during our main study.
 6. Website design. The dataset of books that were listed in the store during our main study and their attributes (prices, rankings, etc.).
 
-The only required dataset that is not published in this replication package is the Comscore dataset of book purchases on Amazon.com. We only use this dataset to produce the right graph in Figure A5 in Appendix D2. The users who are interested in replicating this graph should directly contact Comscore to request access to this dataset for replication purposes. Once the access is granted, we can share the dataset by providing secure access to the raw .csv and .dta tables. The users can then replicate Figure A5 by running the code "replication_package/code/10_compare_with_comscore.do," which is also included (but is currently commented out of) the batch file run_code.bat.
+The only dataset that is not published in this replication package is the Comscore dataset of book purchases on Amazon.com. We only use this dataset to produce Figure A5 in Appendix D2. The users who are interested in replicating this graph should directly contact Comscore to request access to this dataset for replication purposes. Once the access is granted, we can share the dataset by providing secure access to the raw .csv and .dta tables. The users can then replicate Figure A5 by placing the Comscore data tables in "replication_code/input/comscore" and running the code "replication_package/code/10_compare_with_comscore.do," which is also included (but is currently commented out of) the batch file run_code.bat.
 
 Researchers who wish to work with a dataset that has already been processed and cleaned may find it helpful to first run the replication codes as detailed above. One of the codes will produce the .dta dataset "replication_package/output/dataset_merged.dta", which is the dataset we use to produce most of the tables and figures in the paper. Alternatively, researchers can work with the dataset "replication_package/temp/parsed_data/interim_chronology.dta" (produced by code "3_parse_google_analytics.do"), which contains more disaggregated search data. In particular, unlike "dataset_merged.dta" where the data are at the consumer level, "interim_chronology.dta" contains a list of all relevant search events, so the data are at the event level.
 
