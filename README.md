@@ -10,10 +10,10 @@ In addition to data analysis codes, we provide the .lyx version of the manuscrip
 
 ## Data
 
-We welcome other researchers to use our experimental data, both to replicate our work and in their own research projects. Users of our dataset are asked to cite the Marketing Science paper as indicated at the end of this document.
+We welcome other researchers to use our experimental data, both for replication purposes and for empirical analyses in their own research projects. Users of our dataset are asked to cite the Marketing Science paper as indicated at the end of this document.
 
 All data files are stored in the folder "replication_package/input", which contains the following data tables:
-1. Qualtrics. Contains the raw data pull from Qualtrics.
+1. Qualtrics. Contains the raw data pull from Qualtrics (we removed IP addresses and hashed MTurk IDs to protect participants' privacy).
 2. Google Analytics. Contains the raw logs of events (product views, clicks, etc.) we pulled from Google Analytics API using our Google account.
 3. Woocommerce. Contains the dataset of all purchases submitted through the checkout page of our WooCommerce bookstore.
 4. Books unredeemed. The table of all books that were not yet redeemed two weeks after we sent them to participants. We downloaded these lists directly from Kellogg's Amazon Business Account.
