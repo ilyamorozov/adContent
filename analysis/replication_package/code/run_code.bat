@@ -2,10 +2,10 @@ REM ****************************************************
 REM * run_code.bat: double-click to run all scripts
 REM ****************************************************
 
-RMDIR ..\temp /S /Q
-RMDIR ..\output /S /Q
-MKDIR ..\temp
-MKDIR ..\output
+REM RMDIR ..\temp /S /Q
+REM RMDIR ..\output /S /Q
+REM MKDIR ..\temp
+REM MKDIR ..\output
 
 %STATAEXE% /e do 1_build_qualtrics.do
 %STATAEXE% /e do 2_perform_matching.do
