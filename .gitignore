@@ -159,3 +159,6 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 *.dta
+analysis/replication_package/input/google_analytics/wave1/user_chronology.csv
+analysis/replication_package/input/google_analytics/wave2/user_chronology.csv
+analysis/replication_package/input/google_analytics/wave2/__MACOSX/._user_chronology.csv

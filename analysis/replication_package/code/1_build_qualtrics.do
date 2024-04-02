@@ -10,8 +10,6 @@ clear all
 program main
 
 	create_directories
-	load_data_wave1
-	load_data_wave2
 	build_qualtrics
 	who_guessed_the_purpose
 
@@ -38,38 +36,10 @@ program create_directories
 end
 
 
-program load_data_wave1
-
-	import delimited "../input/qualtrics/qualtrics_wave1.csv", varnames(1) clear
-	rename v247 mturk_id                             // retrieve MTurk IDs
-	replace mturk_id = workerid if mturk_id == ""
-	gen unique_code = upper(q64_do)                  // retrieve unique codes
-	drop if length(unique_code) != 6
-	save "../temp/qualtrics_wave1.dta", replace
-
-end
-
-
-program load_data_wave2
-
-	import delimited "../input/qualtrics/qualtrics_wave2.csv", varnames(1) clear
-	rename v227 mturk_id                             // retrieve MTurk IDs
-	replace mturk_id = workerid if mturk_id == ""
-	drop if experimentalassignmentid == .            // retrieve unique codes
-	tostring experimentalassignmentid, replace
-	gen unique_code = experimentalassignmentid + code if experimentalassignmentid~="-99"
-	drop if length(unique_code) != 7
-	drop experimentalassignmentid
-	save "../temp/qualtrics_wave2.dta", replace
-
-end
-
-
 program build_qualtrics
 
-	* Merge files *
-	use "../temp/qualtrics_wave1.dta", clear
-	append using "../temp/qualtrics_wave2.dta"
+	* Load data *
+	use "../input/qualtrics/qualtrics_hashed.dta", clear
 
 	* Organize time stamps *
 	gen double start_time_mdt = clock(startdate, "MD20Y hm")
