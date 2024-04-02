@@ -52,12 +52,12 @@ The following object is masked from 'package:stats':
 # A tibble: 6 × 11
   book   .y.   group1 group2    n1    n2 stati…¹    df        p    p.adj p.adj…²
 * <chr>  <chr> <chr>  <chr>  <int> <int>   <dbl> <dbl>    <dbl>    <dbl> <chr>  
-1 Lost … sear… 1ad    2ad      462  1840   -5.55 1030. 3.65e- 8 7.3 e- 8 ****   
-2 Lost … sear… 1ad    3ad      462  1829   -3.89  936. 1.07e- 4 1.07e- 4 ***    
+1 Lost … sear… 1ad    2ad      462  1842   -5.54 1029. 3.82e- 8 7.64e- 8 ****   
+2 Lost … sear… 1ad    3ad      462  1828   -3.90  937. 1.05e- 4 1.05e- 4 ***    
 3 Lost … sear… 1ad    4ad      462  1798   -7.03 1129. 3.61e-12 1.08e-11 ****   
 4 State… sear… 1ad    2ad      462  1867   -5.72 1041. 1.41e- 8 1.41e- 8 ****   
 5 State… sear… 1ad    3ad      462  1831   -6.45 1096. 1.72e-10 3.44e-10 ****   
-6 State… sear… 1ad    4ad      462  1871   -6.72 1098. 2.85e-11 8.55e-11 ****   
+6 State… sear… 1ad    4ad      462  1870   -6.73 1099. 2.77e-11 8.31e-11 ****   
 # … with abbreviated variable names ¹​statistic, ²​p.adj.signif
 > 
 > # Plot
@@ -83,12 +83,12 @@ The following object is masked from 'package:stats':
 # A tibble: 6 × 11
   book   .y.   group1 group2    n1    n2 stati…¹    df        p    p.adj p.adj…²
 * <chr>  <chr> <chr>  <chr>  <int> <int>   <dbl> <dbl>    <dbl>    <dbl> <chr>  
-1 Lost … purc… 1ad    2ad      462  1840   -3.80 1034. 1.5 e- 4 3   e- 4 ***    
-2 Lost … purc… 1ad    3ad      462  1829   -3.26  989. 1   e- 3 1   e- 3 **     
+1 Lost … purc… 1ad    2ad      462  1842   -3.80 1033. 1.54e- 4 3.08e- 4 ***    
+2 Lost … purc… 1ad    3ad      462  1828   -3.27  990. 1   e- 3 1   e- 3 **     
 3 Lost … purc… 1ad    4ad      462  1798   -5.53 1205. 4.02e- 8 1.21e- 7 ****   
 4 State… purc… 1ad    2ad      462  1867   -6.65 1479. 4.14e-11 4.14e-11 ****   
 5 State… purc… 1ad    3ad      462  1831   -7.26 1564. 5.88e-13 1.18e-12 ****   
-6 State… purc… 1ad    4ad      462  1871   -7.69 1593. 2.63e-14 7.89e-14 ****   
+6 State… purc… 1ad    4ad      462  1870   -7.69 1594. 2.57e-14 7.71e-14 ****   
 # … with abbreviated variable names ¹​statistic, ²​p.adj.signif
 > 
 > # Plot
@@ -113,12 +113,12 @@ The following object is masked from 'package:stats':
 # A tibble: 6 × 11
   book       .y.     group1 group2    n1    n2 stati…¹    df     p p.adj p.adj…²
 * <chr>      <chr>   <chr>  <chr>  <int> <int>   <dbl> <dbl> <dbl> <dbl> <chr>  
-1 Lost Girls num_un… 1ad    2ad      462  1840    1.91  618. 0.057 0.086 ns     
-2 Lost Girls num_un… 1ad    3ad      462  1829    2.05  645. 0.041 0.086 ns     
+1 Lost Girls num_un… 1ad    2ad      462  1842    1.92  617. 0.056 0.086 ns     
+2 Lost Girls num_un… 1ad    3ad      462  1828    2.04  645. 0.041 0.086 ns     
 3 Lost Girls num_un… 1ad    4ad      462  1798    2.19  633. 0.029 0.086 ns     
 4 Stateline  num_un… 1ad    2ad      462  1867    1.73  630. 0.083 0.194 ns     
 5 Stateline  num_un… 1ad    3ad      462  1831    1.85  666. 0.065 0.194 ns     
-6 Stateline  num_un… 1ad    4ad      462  1871    1.70  657. 0.09  0.194 ns     
+6 Stateline  num_un… 1ad    4ad      462  1870    1.70  657. 0.09  0.194 ns     
 # … with abbreviated variable names ¹​statistic, ²​p.adj.signif
 > 
 > # Plot
@@ -144,12 +144,12 @@ The following object is masked from 'package:stats':
 # A tibble: 6 × 11
   book       .y.     group1 group2    n1    n2 stati…¹    df     p p.adj p.adj…²
 * <chr>      <chr>   <chr>  <chr>  <int> <int>   <dbl> <dbl> <dbl> <dbl> <chr>  
-1 Lost Girls num_un… 1ad    2ad      462  1840    2.55  620. 0.011 0.022 *      
-2 Lost Girls num_un… 1ad    3ad      462  1829    2.46  643. 0.014 0.022 *      
+1 Lost Girls num_un… 1ad    2ad      462  1842    2.56  619. 0.011 0.022 *      
+2 Lost Girls num_un… 1ad    3ad      462  1828    2.46  643. 0.014 0.022 *      
 3 Lost Girls num_un… 1ad    4ad      462  1798    3.07  630. 0.002 0.007 **     
 4 Stateline  num_un… 1ad    2ad      462  1867    2.39  629. 0.017 0.036 *      
 5 Stateline  num_un… 1ad    3ad      462  1831    2.52  671. 0.012 0.036 *      
-6 Stateline  num_un… 1ad    4ad      462  1871    2.41  655. 0.016 0.036 *      
+6 Stateline  num_un… 1ad    4ad      462  1870    2.41  655. 0.016 0.036 *      
 # … with abbreviated variable names ¹​statistic, ²​p.adj.signif
 > 
 > # Plot
@@ -176,12 +176,12 @@ The following object is masked from 'package:stats':
 # A tibble: 6 × 11
   book       .y.     group1 group2    n1    n2 stati…¹    df     p p.adj p.adj…²
 * <chr>      <chr>   <chr>  <chr>  <int> <int>   <dbl> <dbl> <dbl> <dbl> <chr>  
-1 Lost Girls sessio… 1ad    2ad      462  1840  1.15    675. 0.252 0.624 ns     
-2 Lost Girls sessio… 1ad    3ad      462  1829  1.23    678. 0.22  0.624 ns     
-3 Lost Girls sessio… 1ad    4ad      462  1798  1.26    676. 0.208 0.624 ns     
+1 Lost Girls sessio… 1ad    2ad      462  1842  1.15    675. 0.249 0.636 ns     
+2 Lost Girls sessio… 1ad    3ad      462  1828  1.22    678. 0.222 0.636 ns     
+3 Lost Girls sessio… 1ad    4ad      462  1798  1.25    676. 0.212 0.636 ns     
 4 Stateline  sessio… 1ad    2ad      462  1867 -0.0450  744. 0.964 1     ns     
-5 Stateline  sessio… 1ad    3ad      462  1831  0.703   702. 0.482 1     ns     
-6 Stateline  sessio… 1ad    4ad      462  1871  0.899   695. 0.369 1     ns     
+5 Stateline  sessio… 1ad    3ad      462  1831  0.706   702. 0.481 1     ns     
+6 Stateline  sessio… 1ad    4ad      462  1870  0.880   695. 0.379 1     ns     
 # … with abbreviated variable names ¹​statistic, ²​p.adj.signif
 > 
 > # Plot
@@ -207,12 +207,12 @@ The following object is masked from 'package:stats':
 # A tibble: 6 × 11
   book     .y.   group1 group2    n1    n2 stati…¹    df       p   p.adj p.adj…²
 * <chr>    <chr> <chr>  <chr>  <int> <int>   <dbl> <dbl>   <dbl>   <dbl> <chr>  
-1 Lost Gi… open… 1ad    2ad      462  1840    2.65  739. 8   e-3 8   e-3 **     
-2 Lost Gi… open… 1ad    3ad      462  1829    2.90  743. 4   e-3 8   e-3 **     
+1 Lost Gi… open… 1ad    2ad      462  1842    2.64  739. 9   e-3 9   e-3 **     
+2 Lost Gi… open… 1ad    3ad      462  1828    2.90  743. 4   e-3 8   e-3 **     
 3 Lost Gi… open… 1ad    4ad      462  1798    3.72  755. 2.15e-4 6.45e-4 ***    
 4 Stateli… open… 1ad    2ad      462  1867    2.91  737. 4   e-3 4   e-3 **     
-5 Stateli… open… 1ad    3ad      462  1831    3.54  748. 4.32e-4 9.69e-4 ***    
-6 Stateli… open… 1ad    4ad      462  1871    3.61  743. 3.23e-4 9.69e-4 ***    
+5 Stateli… open… 1ad    3ad      462  1831    3.56  748. 3.97e-4 1   e-3 **     
+6 Stateli… open… 1ad    4ad      462  1870    3.60  743. 3.41e-4 1   e-3 **     
 # … with abbreviated variable names ¹​statistic, ²​p.adj.signif
 > 
 > # Plot
@@ -238,12 +238,12 @@ The following object is masked from 'package:stats':
 # A tibble: 6 × 11
   book       .y.     group1 group2    n1    n2 stati…¹    df     p p.adj p.adj…²
 * <chr>      <chr>   <chr>  <chr>  <int> <int>   <dbl> <dbl> <dbl> <dbl> <chr>  
-1 Lost Girls dual_r… 1ad    2ad      460  1839  0.180   707. 0.858 1     ns     
-2 Lost Girls dual_r… 1ad    3ad      460  1828 -0.764   702. 0.445 1     ns     
-3 Lost Girls dual_r… 1ad    4ad      460  1798 -0.456   708. 0.649 1     ns     
-4 Stateline  dual_r… 1ad    2ad      460  1865 -0.0977  702. 0.922 0.922 ns     
-5 Stateline  dual_r… 1ad    3ad      460  1830 -1.04    700. 0.299 0.897 ns     
-6 Stateline  dual_r… 1ad    4ad      460  1870 -0.942   695. 0.346 0.897 ns     
+1 Lost Girls dual_r… 1ad    2ad      460  1841  0.206   707. 0.837 1     ns     
+2 Lost Girls dual_r… 1ad    3ad      460  1827 -0.777   702. 0.437 1     ns     
+3 Lost Girls dual_r… 1ad    4ad      460  1798 -0.434   709. 0.664 1     ns     
+4 Stateline  dual_r… 1ad    2ad      460  1865 -0.0977  702. 0.922 0.927 ns     
+5 Stateline  dual_r… 1ad    3ad      460  1830 -1.02    700. 0.309 0.927 ns     
+6 Stateline  dual_r… 1ad    4ad      460  1869 -0.977   695. 0.329 0.927 ns     
 # … with abbreviated variable names ¹​statistic, ²​p.adj.signif
 > 
 > # Plot
@@ -267,4 +267,4 @@ Removed 10 rows containing non-finite values (`stat_summary()`).
 > 
 > proc.time()
    user  system elapsed 
-   5.07    0.40    6.67 
+   5.07    0.35    6.40 
