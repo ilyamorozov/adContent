@@ -110,7 +110,9 @@ end
 
 * Table A3
 program randomization_checks																
-																
+	
+	use "../output/dataset_merged.dta", clear
+	
 	local row = 1
 	matrix TABLE_DEMOS = J(24,8,.)
 	foreach demo_variable in "fantasy_rank" "mystery_rank" "romance_rank" "scifi_rank" "memoirs_rank" "printbooks" "ebooks" "female" "black" "hispanic" "asian" "income1" "income2" "income3" "income4" "income5" "income6" "age_years" "bachelor" "master" "some_college" "married" "divorced" {
