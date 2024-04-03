@@ -267,4 +267,4 @@ Removed 10 rows containing non-finite values (`stat_summary()`).
 > 
 > proc.time()
    user  system elapsed 
-   5.07    0.35    6.40 
+   5.20    0.32    5.56 

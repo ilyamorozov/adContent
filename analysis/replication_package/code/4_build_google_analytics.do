@@ -27,7 +27,6 @@ program main
 	build_time_use
 	build_recom_views
 
-	organize_unredeemed_books
 	merge_tables
 	export_data_to_R
 	
@@ -460,57 +459,6 @@ program build_recom_views
 end
 
 
-program organize_unredeemed_books
-
-	* List of unredeemed books *
-	set more off
-	local satafiles: dir "../input/books_unredeemed/10july2022/" files "*.csv"
-	local satafiles2: dir "../input/books_unredeemed/12july2022/" files "*.csv"
-	local satafiles3: dir "../input/books_unredeemed/12aug2022/" files "*.csv"
-	local counter = 1
-	foreach file of local satafiles {
-		insheet using "../input/books_unredeemed/10july2022/`file'", comma clear
-		if `counter'>1 append using "../temp/books_unredeemed.dta"
-		save "../temp/books_unredeemed.dta", replace
-		local counter = `counter' + 1
-	}
-	foreach file of local satafiles2 {
-		insheet using "../input/books_unredeemed/12july2022/`file'", comma clear
-		if `counter'>1 append using "../temp/books_unredeemed.dta"
-		save "../temp/books_unredeemed.dta", replace
-		local counter = `counter' + 1
-	}
-	foreach file of local satafiles3 {
-		insheet using "../input/books_unredeemed/12aug2022/`file'", comma clear
-		if `counter'>1 append using "../temp/books_unredeemed.dta"
-		save "../temp/books_unredeemed.dta", replace
-		local counter = `counter' + 1
-	}
-	keep redemptionlink
-	duplicates drop
-	save "../temp/books_unredeemed.dta", replace
-	
-	* List of redemption links we sent *
-	local counter = 1
-	forvalues i = 1/14 {
-		import delimited "../input/books_sent/redemption_links_to_send`i'.csv", varnames(1) clear
-		if `counter'>1 append using "../temp/books_sent.dta"
-		save "../temp/books_sent.dta", replace
-		local counter = `counter' + 1
-	}
-	
-	* Merge sent links with unredeemed links *
-	duplicates drop mid redemption_link, force // duplicate observations
-	rename redemption_link redemptionlink
-	merge m:1 redemptionlink using "../temp/books_unredeemed.dta", keep(1 3)
-	gen redeemed_book = (_merge == 1)
-	collapse (max) redeemed_book, by(mid)
-	rename mid mturk_id
-	save "../temp/redeemed_dummy.dta", replace
-
-end
-
-
 program merge_tables
 
 	use "../temp/qualtrics.dta", clear
@@ -526,9 +474,9 @@ program merge_tables
 	merge 1:1 user_id using "../temp/user_data/table_unique_searches.dta", keep(1 3) nogenerate
 	merge 1:1 user_id using "../temp/user_data/table_time_use.dta",        keep(1 3) nogenerate
 	merge 1:1 user_id using "../temp/user_data/table_recom_views.dta",     keep(1 3) nogenerate
-	merge 1:1 mturk_id using "../temp/redeemed_dummy.dta",                 keep(1 3) nogenerate
+	merge 1:1 mturk_id using "../input/books_redeemed/redeemed_books.dta", keep(1 3) nogenerate
 
-	* Drop users for whom we can't infer an ad condition from any source
+	* Drop users for whom we cannot infer an ad condition from any source
 	drop if ad_condition == .
 	
 	* Build 'kept book' and 'redeemed book' variables *

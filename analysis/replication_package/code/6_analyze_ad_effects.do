@@ -21,8 +21,7 @@ program main
 		ate_all_ads_summary
 		ate_match_value
 		ate_spillovers_info_ads_pool
-		
-		
+	
 		* Appendix *
 		ate_both_books
 		ate_match_price

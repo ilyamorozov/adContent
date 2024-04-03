@@ -9,31 +9,31 @@ clear all
 
 program main
 
-	create_directories
+	//create_directories
 	build_qualtrics
 	who_guessed_the_purpose
 
 end
 
 
-program create_directories
-
-	mkdir "../temp/user_data/"
-	mkdir "../temp/parsed_data/"
-	mkdir "../output/tables/"
-	mkdir "../output/tables/ate_estimates/"
-	mkdir "../output/tables/ate_estimates/appendix/"
-	mkdir "../output/tables/comscore/"
-	mkdir "../output/tables/orders_summary/"
-	mkdir "../output/graphs/"
-	mkdir "../output/graphs/descriptives/"
-	mkdir "../output/graphs/genre_choices/"
-	mkdir "../output/graphs/genre_preferences/"
-	mkdir "../output/graphs/demand_rotation/"
-	mkdir "../output/graphs/main_ate/"
-	mkdir "../output/estimates/"
-
-end
+// program create_directories
+//
+// 	mkdir "../temp/user_data/"
+// 	mkdir "../temp/parsed_data/"
+// 	mkdir "../output/tables/"
+// 	mkdir "../output/tables/ate_estimates/"
+// 	mkdir "../output/tables/ate_estimates/appendix/"
+// 	mkdir "../output/tables/comscore/"
+// 	mkdir "../output/tables/orders_summary/"
+// 	mkdir "../output/graphs/"
+// 	mkdir "../output/graphs/descriptives/"
+// 	mkdir "../output/graphs/genre_choices/"
+// 	mkdir "../output/graphs/genre_preferences/"
+// 	mkdir "../output/graphs/demand_rotation/"
+// 	mkdir "../output/graphs/main_ate/"
+// 	mkdir "../output/estimates/"
+//
+// end
 
 
 program build_qualtrics
@@ -149,8 +149,8 @@ program who_guessed_the_purpose
 	use "../temp/qualtrics_long.dta", clear
 	replace purposeofstudy = lower(purposeofstudy)
 	gen flag_guessed_ads = (strpos(purposeofstudy, " ads ") + strpos(purposeofstudy, " advertising ") + strpos(purposeofstudy, " advertisements "))>0
-	browse if flag_guessed_ads == 1
-	browse if flag_guessed_ads == 0
+	//browse if flag_guessed_ads == 1
+	//browse if flag_guessed_ads == 0
 	tab flag_guessed_ads
 
 end
