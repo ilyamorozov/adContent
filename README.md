@@ -26,4 +26,4 @@ Researchers who wish to work with a dataset that has already been processed and 
 
 ## References 
 
-"Where Does Advertising Content Lead You? We Created a Bookstore to Find Out", Ilya Morozov and Anna Tuchman, Marketing Science, Forthcoming.
+Morozov, Ilya, and Anna Tuchman. "Where Does Advertising Content Lead You? We Created a Bookstore to Find Out." Marketing Science, 2004, 43(5), pp. 986–1001.
