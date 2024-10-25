@@ -1,6 +1,6 @@
 # Replication Codes and Experimental Data
 
-This repository contains experiment data and replication codes from the paper titled "Where Does Advertising Content Lead You? We Created a Bookstore to Find Out" by Ilya Morozov and Anna Tuchman (Forthcoming in Marketing Science). The SSRN version of this paper can be accessed using this [link](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4308400).
+This repository contains experiment data and replication codes from the paper titled "Where Does Advertising Content Lead You? We Created a Bookstore to Find Out" by Ilya Morozov and Anna Tuchman (Marketing Science, 2024). The SSRN version of this paper can be accessed using this [link](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4308400).
 
 ## Codes
 
@@ -26,4 +26,4 @@ Researchers who wish to work with a dataset that has already been processed and 
 
 ## References 
 
-Morozov, Ilya, and Anna Tuchman. "Where Does Advertising Content Lead You? We Created a Bookstore to Find Out." Marketing Science, 2004, 43(5), pp. 986–1001.
+Morozov, Ilya, and Anna Tuchman. "Where Does Advertising Content Lead You? We Created a Bookstore to Find Out." Marketing Science, 2024, 43(5), pp. 986–1001.
